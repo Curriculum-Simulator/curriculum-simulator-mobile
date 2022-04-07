@@ -15,7 +15,7 @@ import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import HomeScreen from '../screens/HomeScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import CourseScreen from '../screens/CourseScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -85,11 +85,11 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="Courses"
+        component={CourseScreen}
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Courses',
+          tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
         }}
       />
     </BottomTab.Navigator>
