@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { DataTable } from 'react-native-paper';
+import { DataTable, Searchbar } from 'react-native-paper';
 import { Text, View } from './Themed';
-import { CourseTableProps } from '../types';
+import { CourseData, CourseTableProps } from '../types';
 
 
 const numberOfItemsPerPageList = [5, 10, 15];
@@ -45,8 +45,25 @@ export default function CourseTable(props: CourseTableProps) {
         }
     }
 
+    /** Searching **/
+    const [searchValue, setSearchValue] = useState("");
+
+    const updateSearchValue = (text: React.SetStateAction<string>) => {
+        setSearchValue(text);
+    };
+
+    function searchById(course: CourseData){
+        if(searchValue === "" || course.id.includes(searchValue.toUpperCase())) return course;
+    }
+
     return (
         <View>
+            <Searchbar
+                placeholder="Search Here..."
+                value={searchValue}
+                onChangeText={(text) => updateSearchValue(text)}
+                autoCorrect={false}
+            />
             <DataTable>
                 <DataTable.Header>
                     <DataTable.Title sortDirection={direction} onPress={changeSortDirection}>Acronym</DataTable.Title>
@@ -55,7 +72,7 @@ export default function CourseTable(props: CourseTableProps) {
                 </DataTable.Header>
 
                 {
-                    courses.sort(sortByQuarter).slice(from, to).map(course => {
+                    courses.filter(searchById).sort(sortByQuarter).slice(from, to).map(course => {
                         return (
                             <DataTable.Row style={styles.cells} key={course.id} >
                                 <DataTable.Cell>{course.id}</DataTable.Cell>
@@ -68,7 +85,7 @@ export default function CourseTable(props: CourseTableProps) {
 
                 <DataTable.Pagination
                     page={page}
-                    numberOfPages={Math.ceil(courses.length / numberOfItemsPerPage)}
+                    numberOfPages={Math.ceil(courses.filter(searchById).length / numberOfItemsPerPage)}
                     onPageChange={page => setPage(page)}
                     label={`${from + 1}-${to} of ${courses.length}`}
                     showFastPaginationControls
