@@ -33,3 +33,17 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> = Composit
   BottomTabScreenProps<RootTabParamList, Screen>,
   NativeStackScreenProps<RootStackParamList>
 >;
+
+export type CourseTableProps = {
+  courses: Array<CourseData>
+};
+
+export type CourseData = {
+  id: string;
+  title: string;
+  quarter: number;
+  credits: number;
+  section: string;
+  hours: number;
+};
+
