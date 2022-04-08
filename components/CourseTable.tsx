@@ -3,21 +3,18 @@ import { StyleSheet } from 'react-native';
 
 import { DataTable } from 'react-native-paper';
 import { Text, View } from './Themed';
-import axios, { AxiosResponse } from 'axios';
+import { CourseTableProps } from '../types';
+
 
 const numberOfItemsPerPageList = [5, 10, 15];
 
-
-export default function CourseTable() {
+export default function CourseTable(props: CourseTableProps) {
     /** Courses **/
-    const [courses, setCourses] = useState(Array);
+    const [courses, setCourses] = useState(props.courses);
 
     useEffect(() => {
-        axios.get('https://curriculum-simulator.herokuapp.com/api/courses')
-            .then((response: AxiosResponse) => {
-                setCourses(response.data);
-            });
-    }, []);
+        setCourses(props.courses);
+    }, [props.courses]);
 
     /** Pagination **/
     const [page, setPage] = useState(0);
@@ -90,7 +87,7 @@ const styles = StyleSheet.create({
     cells: {
 
     },
-    titleCell: { 
-        
+    titleCell: {
+
     }
 });
