@@ -44,7 +44,7 @@ And the given information will be showed
 After running the command above go to the selected device
 
 # Remark
-has only been tested on android so far
+has only been tested on android so far <!>
 
 # Author
 - **Ayoub Lahyaoui**
