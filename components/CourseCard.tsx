@@ -8,9 +8,8 @@ import CourseTable from './CourseTable';
 import { CourseData } from '../types';
 
 
-
 export default function CourseCard() {
-    /** Courses to pass to CourseTable components **/
+    /** Courses That will be passed to the CourseTable component **/
     const [courses, setCourses] = useState(Array<CourseData>());
 
     useEffect(() => {
