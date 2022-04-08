@@ -34,7 +34,6 @@ And the given information will be showed
 
 > Metro waiting on exp://192.168.1.17:19000 </br>
 > Press a to open Android </br>
-> Press w to open web </br>
 > Press r to reload the app </br>
 > Press m to toggle the menu </br>
 > Press d to show developer tools </br>
@@ -43,6 +42,9 @@ And the given information will be showed
 # Usage
 
 After running the command above go to the selected device
+
+# Remark
+has only been tested on android so far
 
 # Author
 - **Ayoub Lahyaoui**
