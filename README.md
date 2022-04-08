@@ -37,7 +37,9 @@ And the given information will be showed
 > Press r to reload the app </br>
 > Press m to toggle the menu </br>
 > Press d to show developer tools </br>
-> shift+d to toggle auto opening developer tools on startup (disabled) 
+> shift+d to toggle auto opening developer tools on startup (disabled)
+
+Plug your android device or run your emulator and then press a
 
 # Usage
 
