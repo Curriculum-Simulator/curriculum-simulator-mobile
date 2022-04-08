@@ -87,7 +87,7 @@ export default function CourseTable(props: CourseTableProps) {
                     page={page}
                     numberOfPages={Math.ceil(courses.filter(searchById).length / numberOfItemsPerPage)}
                     onPageChange={page => setPage(page)}
-                    label={`${from + 1}-${to} of ${courses.length}`}
+                    label={`${from + 1}-${to} of ${courses.filter(searchById).length}`}
                     showFastPaginationControls
                     numberOfItemsPerPageList={numberOfItemsPerPageList}
                     numberOfItemsPerPage={numberOfItemsPerPage}
