@@ -17,9 +17,15 @@ With a ssh key:
 $ git clone git@github.com:alahyaoui/curriculum-simulator-mobile.git
 ```
 
-# Execution
-You need expo installed.
+Then in the project directory, you can run:
+```
+$ expo install
+```
+
+NB: You need expo installed.
 If its not, download expo <a href="https://reactnative.dev/docs/environment-setup">here</a>
+
+# Execution
 ```
 $ expo start
 ```
