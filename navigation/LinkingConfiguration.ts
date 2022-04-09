@@ -25,6 +25,11 @@ const linking: LinkingOptions<RootStackParamList> = {
               CourseScreen: 'courses',
             },
           },
+          Simulator: {
+            screens: {
+              SimulatorScreen: 'simulator',
+            },
+          },
         },
       },
       Modal: 'modal',
