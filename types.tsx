@@ -47,3 +47,15 @@ export type CourseData = {
   hours: number;
 };
 
+export type ProgramCourseData = {
+  id: string;
+  title: string;
+  quarter: number;
+  credits: number;
+  section: string;
+  hours: number;
+  accessible: boolean;
+  passed: boolean;
+};
+
+
