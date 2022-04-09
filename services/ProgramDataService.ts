@@ -10,7 +10,7 @@ class ProgramDataService {
    * @returns An array of CourseData objects.
    */
   getBySection(section: Section) {
-    return httpsCommon.get<Array<ProgramCourseData>>(`/program?section=${section.toUpperCase}`);
+    return httpsCommon.get<Array<ProgramCourseData>>(`/program?section=${section}`);
   }
 
   /**
