@@ -1,5 +1,5 @@
 import httpsCommon from "../https-common";
-import { CourseData, ProgramCourseData } from "../types";
+import { ProgramCourseData, Section } from "../types";
 
 /* This class is a service that provides methods to get data from the server. */
 class ProgramDataService {
@@ -9,7 +9,7 @@ class ProgramDataService {
    * @param {string} section - string
    * @returns An array of CourseData objects.
    */
-  getBySection(section: string) {
+  getBySection(section: Section) {
     return httpsCommon.get<Array<ProgramCourseData>>(`/program?section=${section.toUpperCase}`);
   }
 
