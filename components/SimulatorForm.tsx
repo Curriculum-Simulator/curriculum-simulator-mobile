@@ -125,7 +125,7 @@ export default function SimulatorForm(props: SimulatorFormProps) {
                     selectPageDropdownLabel={'Rows per page'}
                 />
             </DataTable>
-            <Button mode="contained" onPress={submitForm}>Submit</Button>
+            <Button style={styles.submitButton} color='darkblue' mode="contained" onPress={submitForm}>Submit</Button>
         </View>
     );
 }
@@ -134,4 +134,9 @@ const styles = StyleSheet.create({
     cells: {
 
     },
+    submitButton: {
+        width: 'auto',
+        height: 'auto',
+        alignSelf: 'flex-end',
+    }
 });
