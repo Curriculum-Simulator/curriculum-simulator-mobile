@@ -64,6 +64,7 @@ export type SimulatorCourseData = {
 };
 
 export enum Section {
+  ALL = "ALL",
   MANAGEMENT = "MANAGEMENT",
   NETWORK = "NETWORK",
   INDUSTRIAL = "INDUSTRIAL",
