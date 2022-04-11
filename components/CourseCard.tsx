@@ -6,6 +6,7 @@ import { AxiosResponse } from 'axios';
 import CourseDataService from '../services/CourseDataService';
 import CourseTable from './CourseTable';
 import { CourseData } from '../types';
+import { View } from './Themed';
 
 
 export default function CourseCard() {
@@ -17,18 +18,20 @@ export default function CourseCard() {
             .then((response: AxiosResponse) => {
                 setCourses(response.data);
             })
-            .catch((error)=>{
+            .catch((error) => {
                 console.log("Api call error");
                 alert(error.message);
-             });
+            });
     }, []);
 
     return (
-        <Card containerStyle={styles.card} wrapperStyle={{}}>
-            <Card.Title>Search a course</Card.Title>
-            <Card.Divider />
-            <CourseTable courses={courses} />
-        </Card>
+        <View>
+            <Card containerStyle={styles.card} wrapperStyle={{}}>
+                <Card.Title>Search a course</Card.Title>
+                <Card.Divider />
+                <CourseTable courses={courses} />
+            </Card>
+        </View>
     );
 }
 
