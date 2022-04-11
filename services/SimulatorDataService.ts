@@ -1,5 +1,5 @@
 import httpsCommon from "../https-common";
-import { ProgramCourseData, Section } from "../types";
+import { SimulatorCourseData, Section } from "../types";
 
 /* This class is a service that provides methods to get data from the server. */
 class ProgramDataService {
@@ -10,7 +10,7 @@ class ProgramDataService {
    * @returns An array of CourseData objects.
    */
   getBySection(section: Section) {
-    return httpsCommon.get<Array<ProgramCourseData>>(`/program?section=${section}`);
+    return httpsCommon.get<Array<SimulatorCourseData>>(`/program?section=${section}`);
   }
 
   /**
@@ -19,8 +19,8 @@ class ProgramDataService {
    * @param program - Array<ProgramCourseData>
    * @returns An Observable of type Array<CourseData>
    */
-  submit(program: Array<ProgramCourseData>){
-    return httpsCommon.post<Array<ProgramCourseData>>(`/program`, program);
+  submit(program: Array<SimulatorCourseData>){
+    return httpsCommon.post<Array<SimulatorCourseData>>(`/program`, program);
   }
 }
 
