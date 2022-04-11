@@ -98,7 +98,7 @@ function BottomTabNavigator() {
         component={SimulatorScreen}
         options={{
           title: 'Simulator',
-          tabBarIcon: ({ color }) => <TabBarIcon name="gears" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="gears" color={color}  />,
         }}
       />
     </BottomTab.Navigator>
