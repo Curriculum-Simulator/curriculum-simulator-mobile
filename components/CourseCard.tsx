@@ -55,7 +55,6 @@ export default function CourseCard() {
                         <Picker.Item label="industrial" value={Section.INDUSTRIAL} />
                     </Picker>
                 </View>
-                <Card.Divider />
                 <CourseTable courses={courses} />
             </Card>
         </View>
