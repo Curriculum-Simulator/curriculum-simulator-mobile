@@ -37,7 +37,11 @@ export default function SimulatorForm(props: SimulatorFormProps) {
         SimulatorDataService.submit(program)
             .then((response: AxiosResponse) => {
                 setProgram(response.data);
-            });;
+            })
+            .catch((error) => {
+                console.log("Api call error");
+                alert(error.message);
+            });
     }
 
     /** Pagination **/

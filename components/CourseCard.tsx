@@ -16,7 +16,11 @@ export default function CourseCard() {
         CourseDataService.getAll()
             .then((response: AxiosResponse) => {
                 setCourses(response.data);
-            });
+            })
+            .catch((error)=>{
+                console.log("Api call error");
+                alert(error.message);
+             });
     }, []);
 
     return (

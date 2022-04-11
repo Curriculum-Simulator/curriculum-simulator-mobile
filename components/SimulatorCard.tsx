@@ -20,7 +20,11 @@ export default function SimulatorCard() {
         ProgramDataService.getBySection(selectedSection)
             .then((response: AxiosResponse) => {
                 setProgram(response.data);
-            });
+            })
+            .catch((error)=>{
+                console.log("Api call error");
+                alert(error.message);
+             });
     }, [selectedSection]);
 
 
