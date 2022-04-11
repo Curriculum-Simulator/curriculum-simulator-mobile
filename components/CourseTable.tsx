@@ -6,7 +6,7 @@ import { CourseData, CourseTableProps } from '../types';
 import { View } from './Themed';
 
 
-const numberOfItemsPerPageList = [5, 10, 15];
+const numberOfItemsPerPageList = [5, 10, 15, 20, 25, 30];
 
 export default function CourseTable(props: CourseTableProps) {
     /** Courses **/
