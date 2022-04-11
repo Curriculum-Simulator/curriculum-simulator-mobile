@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { AsyncStorage, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { Button, Checkbox, DataTable, Searchbar } from 'react-native-paper';
 import { View } from './Themed';
 import { SimulatorCourseData, SimulatorFormProps } from '../types';
 import SimulatorDataService from '../services/SimulatorDataService';
 import { AxiosResponse } from 'axios';
+import Colors from '../constants/Colors';
 
 const numberOfItemsPerPageList = [5, 10, 15, 20, 40];
 
@@ -98,6 +99,7 @@ export default function SimulatorForm(props: SimulatorFormProps) {
                                     <Checkbox
                                         status={course.passed ? 'checked' : 'unchecked'}
                                         onPress={() => handleFormChange(course)}
+                                        color={'green'}
                                     />
                                 </DataTable.Cell>
                                 <DataTable.Cell numeric>
