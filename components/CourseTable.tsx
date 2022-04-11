@@ -90,7 +90,7 @@ export default function CourseTable(props: CourseTableProps) {
                     onPageChange={page => setPage(page)}
                     label={`${from + 1}-${to} of ${filteredProgram.length}`}
                     showFastPaginationControls
-                    numberOfItemsPerPageList={numberOfItemsPerPageList}
+                    numberOfItemsPerPageList={numberOfItemsPerPageList.concat(filteredProgram.length)}
                     numberOfItemsPerPage={numberOfItemsPerPage}
                     onItemsPerPageChange={onItemsPerPageChange}
                     selectPageDropdownLabel={'Rows per page'}
