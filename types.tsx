@@ -48,7 +48,11 @@ export type CourseData = {
   hours: number;
 };
 
-export type ProgramCourseData = {
+export type SimulatorFormProps = {
+  program: Array<SimulatorCourseData>
+};
+
+export type SimulatorCourseData = {
   id: string;
   title: string;
   quarter: number;
@@ -60,5 +64,7 @@ export type ProgramCourseData = {
 };
 
 export enum Section {
-  MANAGEMENT, NETWORK, INDUSTRIAL
+  MANAGEMENT = "MANAGEMENT",
+  NETWORK = "NETWORK",
+  INDUSTRIAL = "INDUSTRIAL",
 }
