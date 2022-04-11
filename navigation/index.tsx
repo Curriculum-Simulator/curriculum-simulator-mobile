@@ -18,6 +18,7 @@ import HomeScreen from '../screens/HomeScreen';
 import CourseScreen from '../screens/CourseScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import SimulatorScreen from '../screens/SimulatorScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -90,6 +91,14 @@ function BottomTabNavigator() {
         options={{
           title: 'Courses',
           tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Simulator"
+        component={SimulatorScreen}
+        options={{
+          title: 'Simulator',
+          tabBarIcon: ({ color }) => <TabBarIcon name="gears" color={color}  />,
         }}
       />
     </BottomTab.Navigator>

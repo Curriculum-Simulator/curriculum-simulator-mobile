@@ -11,7 +11,7 @@ class CourseDataService {
    * @returns An array of CourseData objects.
    */
   findByFilterAndField(filter: string, field: string) {
-    return httpsCommon.get<Array<CourseData>>(`/courses??filter=${filter}&field=${field}`);
+    return httpsCommon.get<Array<CourseData>>(`/courses?filter=${filter}&field=${field}`);
   }
 
 

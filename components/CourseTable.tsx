@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { DataTable, Searchbar } from 'react-native-paper';
-import { Text, View } from './Themed';
 import { CourseData, CourseTableProps } from '../types';
+import { View } from './Themed';
 
 
 const numberOfItemsPerPageList = [5, 10, 15];
@@ -47,13 +47,14 @@ export default function CourseTable(props: CourseTableProps) {
 
     /** Searching **/
     const [searchValue, setSearchValue] = useState("");
+    const filteredProgram = courses.filter(searchById)
 
-    const updateSearchValue = (text: React.SetStateAction<string>) => {
+    function updateSearchValue(text: React.SetStateAction<string>){
         setSearchValue(text);
-    };
+    }
 
-    function searchById(course: CourseData){
-        if(searchValue === "" || course.id.includes(searchValue.toUpperCase())) return course;
+    function searchById(course: CourseData) {
+        if (searchValue === "" || course.id.includes(searchValue.toUpperCase())) return course;
     }
 
     return (
@@ -72,7 +73,7 @@ export default function CourseTable(props: CourseTableProps) {
                 </DataTable.Header>
 
                 {
-                    courses.filter(searchById).sort(sortByQuarter).slice(from, to).map(course => {
+                    filteredProgram.sort(sortByQuarter).slice(from, to).map(course => {
                         return (
                             <DataTable.Row style={styles.cells} key={course.id} >
                                 <DataTable.Cell>{course.id}</DataTable.Cell>
@@ -85,9 +86,9 @@ export default function CourseTable(props: CourseTableProps) {
 
                 <DataTable.Pagination
                     page={page}
-                    numberOfPages={Math.ceil(courses.filter(searchById).length / numberOfItemsPerPage)}
+                    numberOfPages={Math.ceil(filteredProgram.length / numberOfItemsPerPage)}
                     onPageChange={page => setPage(page)}
-                    label={`${from + 1}-${to} of ${courses.filter(searchById).length}`}
+                    label={`${from + 1}-${to} of ${filteredProgram.length}`}
                     showFastPaginationControls
                     numberOfItemsPerPageList={numberOfItemsPerPageList}
                     numberOfItemsPerPage={numberOfItemsPerPage}

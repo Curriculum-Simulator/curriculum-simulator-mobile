@@ -9,7 +9,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 declare global {
   namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {}
+    interface RootParamList extends RootStackParamList { }
   }
 }
 
@@ -27,6 +27,7 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 export type RootTabParamList = {
   Home: undefined;
   Courses: undefined;
+  Simulator: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
@@ -47,3 +48,23 @@ export type CourseData = {
   hours: number;
 };
 
+export type SimulatorFormProps = {
+  program: Array<SimulatorCourseData>
+};
+
+export type SimulatorCourseData = {
+  id: string;
+  title: string;
+  quarter: number;
+  credits: number;
+  section: string;
+  hours: number;
+  accessible: boolean;
+  passed: boolean;
+};
+
+export enum Section {
+  MANAGEMENT = "MANAGEMENT",
+  NETWORK = "NETWORK",
+  INDUSTRIAL = "INDUSTRIAL",
+}
