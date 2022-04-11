@@ -31,7 +31,8 @@ export default function SimulatorCard() {
     return (
         <View>
             <Card containerStyle={styles.card} wrapperStyle={{}}>
-                <Card.Title>Curriculum Simulation</Card.Title>
+                <Card.Title style={styles.cardTitle}>Curriculum Simulation</Card.Title>
+                <Card.Divider />
                 <View style={styles.container}>
                     <Text style={styles.sectionText}> Choose your section:</Text>
                     <Picker
@@ -43,7 +44,6 @@ export default function SimulatorCard() {
                         <Picker.Item label="industrial" value={Section.INDUSTRIAL} />
                     </Picker>
                 </View>
-                <Card.Divider />
                 <SimulatorForm program={program} />
             </Card>
         </View>
@@ -55,6 +55,9 @@ const styles = StyleSheet.create({
         marginTop: "5%",
         marginBottom: "5%",
         borderRadius: 10,
+    },
+    cardTitle:{
+      fontSize: 25,
     },
     container: {
         display: "flex",

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 
+import { Picker } from '@react-native-picker/picker';
 import { Card } from "@rneui/base";
 import { AxiosResponse } from 'axios';
 import CourseDataService from '../services/CourseDataService';
 import { CourseData, Section } from '../types';
 import CourseTable from './CourseTable';
 import { Text, View } from './Themed';
-import { Picker } from '@react-native-picker/picker';
 
 
 export default function CourseCard() {
@@ -41,7 +41,8 @@ export default function CourseCard() {
     return (
         <View>
             <Card containerStyle={styles.card} wrapperStyle={{}}>
-                <Card.Title>Search a course</Card.Title>
+                <Card.Title style={styles.cardTitle}>Search a course</Card.Title>
+                <Card.Divider />
                 <View style={styles.container}>
                     <Text style={styles.sectionText}> Choose your section:</Text>
                     <Picker
@@ -66,6 +67,9 @@ const styles = StyleSheet.create({
         marginTop: "5%",
         marginBottom: "5%",
         borderRadius: 10,
+    },
+    cardTitle: {
+        fontSize: 25
     },
     container: {
         display: "flex",
