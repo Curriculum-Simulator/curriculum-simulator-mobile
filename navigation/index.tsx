@@ -66,9 +66,25 @@ function BottomTabNavigator() {
       <BottomTab.Screen
         name="Home"
         component={HomeScreen}
-        options={({ navigation }: RootTabScreenProps<'Home'>) => ({
+        options={{
           title: 'Home',
           tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Courses"
+        component={CourseScreen}
+        options={{
+          title: 'Courses',
+          tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Simulator"
+        component={SimulatorScreen}
+        options={({ navigation }: RootTabScreenProps<'Simulator'>) => ({
+          title: 'Simulator',
+          tabBarIcon: ({ color }) => <TabBarIcon name="gears" color={color}  />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -84,22 +100,6 @@ function BottomTabNavigator() {
             </Pressable>
           ),
         })}
-      />
-      <BottomTab.Screen
-        name="Courses"
-        component={CourseScreen}
-        options={{
-          title: 'Courses',
-          tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
-        }}
-      />
-      <BottomTab.Screen
-        name="Simulator"
-        component={SimulatorScreen}
-        options={{
-          title: 'Simulator',
-          tabBarIcon: ({ color }) => <TabBarIcon name="gears" color={color}  />,
-        }}
       />
     </BottomTab.Navigator>
   );
