@@ -21,30 +21,32 @@ export default function SimulatorCard() {
             .then((response: AxiosResponse) => {
                 setProgram(response.data);
             })
-            .catch((error)=>{
+            .catch((error) => {
                 console.log("Api call error");
                 alert(error.message);
-             });
+            });
     }, [selectedSection]);
 
 
     return (
-        <Card containerStyle={styles.card} wrapperStyle={{}}>
-            <Card.Title>Curriculum Simulation</Card.Title>
-            <View style={styles.container}>
-                <Text style={styles.sectionText}> Choose your section:</Text>
-                <Picker
-                    selectedValue={selectedSection}
-                    style={{ height: 50, width: 150 }}
-                    onValueChange={(itemValue) => setSelectedSection(itemValue)}>
-                    <Picker.Item label="management" value={Section.MANAGEMENT} />
-                    <Picker.Item label="network" value={Section.NETWORK} />
-                    <Picker.Item label="industrial" value={Section.INDUSTRIAL} />
-                </Picker>
-            </View>
-            <Card.Divider />
-            <SimulatorForm program={program} />
-        </Card>
+        <View>
+            <Card containerStyle={styles.card} wrapperStyle={{}}>
+                <Card.Title>Curriculum Simulation</Card.Title>
+                <View style={styles.container}>
+                    <Text style={styles.sectionText}> Choose your section:</Text>
+                    <Picker
+                        selectedValue={selectedSection}
+                        style={{ height: 50, width: 150 }}
+                        onValueChange={(itemValue) => setSelectedSection(itemValue)}>
+                        <Picker.Item label="management" value={Section.MANAGEMENT} />
+                        <Picker.Item label="network" value={Section.NETWORK} />
+                        <Picker.Item label="industrial" value={Section.INDUSTRIAL} />
+                    </Picker>
+                </View>
+                <Card.Divider />
+                <SimulatorForm program={program} />
+            </Card>
+        </View>
     );
 }
 
