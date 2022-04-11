@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { AsyncStorage, StyleSheet } from 'react-native';
 
 import { Button, Checkbox, DataTable, Searchbar } from 'react-native-paper';
 import { View } from './Themed';
 import { SimulatorCourseData, SimulatorFormProps } from '../types';
+import SimulatorDataService from '../services/SimulatorDataService';
+import { AxiosResponse } from 'axios';
 
 const numberOfItemsPerPageList = [5, 10, 15, 20, 40];
 
@@ -16,7 +18,13 @@ export default function SimulatorForm(props: SimulatorFormProps) {
     }, [props.program]);
 
     /** Form functions */
-    function handleFormChange(course: SimulatorCourseData){
+    function setAllPassed() {
+        let courses = [...program];
+        courses.map((course) => { course.passed = !course.passed })
+        setProgram(courses);
+    }
+
+    function handleFormChange(course: SimulatorCourseData) {
         let courses = [...program];
         let foundCourse = courses.find((course, index) => course.id == courses[index].id)
         course.passed = !course.passed
@@ -24,10 +32,11 @@ export default function SimulatorForm(props: SimulatorFormProps) {
         setProgram(courses);
     }
 
-    function setAllPassed() {
-        let courses = [...program];
-        courses.map((course) => {course.passed = !course.passed })
-        setProgram(courses);
+    function submitForm() {
+        SimulatorDataService.submit(program)
+            .then((response: AxiosResponse) => {
+                setProgram(response.data);
+            });;
     }
 
     /** Pagination **/
@@ -114,6 +123,7 @@ export default function SimulatorForm(props: SimulatorFormProps) {
                     selectPageDropdownLabel={'Rows per page'}
                 />
             </DataTable>
+            <Button mode="contained" onPress={submitForm}>Submit</Button>
         </View>
     );
 }
