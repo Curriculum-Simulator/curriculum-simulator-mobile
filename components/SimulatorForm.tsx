@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Checkbox, DataTable, Searchbar } from 'react-native-paper';
+import { Button, Checkbox, DataTable, Searchbar } from 'react-native-paper';
 import { View } from './Themed';
 import { SimulatorCourseData, SimulatorFormProps } from '../types';
 
@@ -123,47 +123,3 @@ const styles = StyleSheet.create({
 
     },
 });
-
-
-
-
-{
-    /** Form inputs **/
-    /*const [inputFields, setInputFields] = useState([
-        { id: "", isPassed: false, isAccessible: false }
-    ])*/
-
-    /*const handleFormChange = (index: number, event) => {
-        let data = [...program];
-        data[index][event.target.name] = event.target.value;
-        setProgram(data);
-    }*/
-
-
-    /*
-    program.map(course => {
-        inputFields.push([course.id, course.passed, course.accessible])
-    })
-
-    inputFields.map((input, index) => {
-        return (
-            <DataTable.Row style={styles.cells} key={input.id}>
-                <DataTable.Cell>{input.id}</DataTable.Cell>
-                <DataTable.Cell>
-                    <Checkbox
-                        status={input.isPassed ? 'checked' : 'unchecked'}
-                        onPress={event => handleFormChange(index, event)}
-                    />
-                </DataTable.Cell>
-                <DataTable.Cell>
-                    <Checkbox
-                        status={input.isAccessible ? 'checked' : 'unchecked'}
-                        disabled
-                        onPress={event => handleFormChange(index, event)}
-                    />
-                </DataTable.Cell>
-            </DataTable.Row>
-        )
-    })
-    */
-}
