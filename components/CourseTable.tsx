@@ -49,9 +49,9 @@ export default function CourseTable(props: CourseTableProps) {
     const [searchValue, setSearchValue] = useState("");
     const filteredProgram = courses.filter(searchById)
 
-    const updateSearchValue = (text: React.SetStateAction<string>) => {
+    function updateSearchValue(text: React.SetStateAction<string>){
         setSearchValue(text);
-    };
+    }
 
     function searchById(course: CourseData) {
         if (searchValue === "" || course.id.includes(searchValue.toUpperCase())) return course;
