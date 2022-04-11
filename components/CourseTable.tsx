@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { DataTable, Searchbar } from 'react-native-paper';
-import { Text, View } from './Themed';
 import { CourseData, CourseTableProps } from '../types';
+import { View } from './Themed';
 
 
 const numberOfItemsPerPageList = [5, 10, 15];
@@ -52,8 +52,8 @@ export default function CourseTable(props: CourseTableProps) {
         setSearchValue(text);
     };
 
-    function searchById(course: CourseData){
-        if(searchValue === "" || course.id.includes(searchValue.toUpperCase())) return course;
+    function searchById(course: CourseData) {
+        if (searchValue === "" || course.id.includes(searchValue.toUpperCase())) return course;
     }
 
     return (
