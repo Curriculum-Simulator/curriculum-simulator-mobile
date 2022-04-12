@@ -21,30 +21,32 @@ export default function SimulatorCard() {
             .then((response: AxiosResponse) => {
                 setProgram(response.data);
             })
-            .catch((error)=>{
+            .catch((error) => {
                 console.log("Api call error");
                 alert(error.message);
-             });
+            });
     }, [selectedSection]);
 
 
     return (
-        <Card containerStyle={styles.card} wrapperStyle={{}}>
-            <Card.Title>Curriculum Simulation</Card.Title>
-            <View style={styles.container}>
-                <Text style={styles.sectionText}> Choose your section:</Text>
-                <Picker
-                    selectedValue={selectedSection}
-                    style={{ height: 50, width: 150 }}
-                    onValueChange={(itemValue) => setSelectedSection(itemValue)}>
-                    <Picker.Item label="management" value={Section.MANAGEMENT} />
-                    <Picker.Item label="network" value={Section.NETWORK} />
-                    <Picker.Item label="industrial" value={Section.INDUSTRIAL} />
-                </Picker>
-            </View>
-            <Card.Divider />
-            <SimulatorForm program={program} />
-        </Card>
+        <View>
+            <Card containerStyle={styles.card} wrapperStyle={{}}>
+                <Card.Title style={styles.cardTitle}>Curriculum Simulation</Card.Title>
+                <Card.Divider />
+                <View style={styles.container}>
+                    <Text style={styles.sectionText}> Choose your section:</Text>
+                    <Picker
+                        selectedValue={selectedSection}
+                        style={styles.selectionBox}
+                        onValueChange={(itemValue) => setSelectedSection(itemValue)}>
+                        <Picker.Item label="management" value={Section.MANAGEMENT} />
+                        <Picker.Item label="network" value={Section.NETWORK} />
+                        <Picker.Item label="industrial" value={Section.INDUSTRIAL} />
+                    </Picker>
+                </View>
+                <SimulatorForm program={program} />
+            </Card>
+        </View>
     );
 }
 
@@ -54,12 +56,22 @@ const styles = StyleSheet.create({
         marginBottom: "5%",
         borderRadius: 10,
     },
+    cardTitle:{
+      fontSize: 25,
+    },
     container: {
         display: "flex",
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: 'space-evenly',
+        width: 'auto',
+    },
+    selectionBox: {
+        width: 160,
     },
     sectionText: {
+        fontSize: 15,
+        width: 'auto',
         fontWeight: "bold",
     }
 });

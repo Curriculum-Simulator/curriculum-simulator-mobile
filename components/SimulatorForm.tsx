@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import { Button, Checkbox, DataTable, Searchbar } from 'react-native-paper';
-import { View } from './Themed';
-import { SimulatorCourseData, SimulatorFormProps } from '../types';
-import SimulatorDataService from '../services/SimulatorDataService';
 import { AxiosResponse } from 'axios';
-import Colors from '../constants/Colors';
+import { Button, Checkbox, DataTable, Searchbar } from 'react-native-paper';
+import SimulatorDataService from '../services/SimulatorDataService';
+import { SimulatorCourseData, SimulatorFormProps } from '../types';
 
-const numberOfItemsPerPageList = [5, 10, 15, 20, 40];
+const numberOfItemsPerPageList = [5, 10, 15, 20, 25, 30];
 
 export default function SimulatorForm(props: SimulatorFormProps) {
     /** Student Courses with their states (passed or accessible) **/
@@ -123,7 +121,7 @@ export default function SimulatorForm(props: SimulatorFormProps) {
                     onPageChange={page => setPage(page)}
                     label={`${from + 1}-${to} of ${filteredProgram.length}`}
                     showFastPaginationControls
-                    numberOfItemsPerPageList={numberOfItemsPerPageList}
+                    numberOfItemsPerPageList={numberOfItemsPerPageList.concat(filteredProgram.length)}
                     numberOfItemsPerPage={numberOfItemsPerPage}
                     onItemsPerPageChange={onItemsPerPageChange}
                     selectPageDropdownLabel={'Rows per page'}

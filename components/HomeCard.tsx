@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
-import { Button, Card, Icon } from "@rneui/base";
-import { View, Image, FlatList } from "react-native";
+import { Card } from "@rneui/base";
+import { FlatList, View } from "react-native";
 import { Text } from "./Themed";
 
 export function HomeCard() {

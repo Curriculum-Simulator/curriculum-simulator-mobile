@@ -1,5 +1,5 @@
 import httpsCommon from "../https-common";
-import { CourseData } from "../types";
+import { CourseData, Section } from "../types";
 
 /* This class is a service that provides methods to get data from the server. */
 class CourseDataService {
@@ -20,8 +20,8 @@ class CourseDataService {
    * @param {string} section either MANAGEMENT, NETWORK or INDUSTRIAL
    * @returns An array of CourseData objects.
    */
-  getBySection(section: string) {
-    return httpsCommon.get<Array<CourseData>>(`/courses/${section.toUpperCase}`);
+  getBySection(section: Section) {
+    return httpsCommon.get<Array<CourseData>>(`/courses/${section}`);
   }
 
   /**
