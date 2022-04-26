@@ -25,16 +25,20 @@ $ git clone git@github.com:alahyaoui/curriculum-simulator-mobile.git
 
 Then in the project directory, you can run:
 ```
-$ expo install
+$ yarn install
 ```
 
-NB: You need expo installed.
-If its not, download expo <a href="https://reactnative.dev/docs/environment-setup">here</a>
+NB : You need yarn install
+If its not, download yarn <a href="https://classic.yarnpkg.com/lang/en/docs/install/">here</a>
 
 # Execution
 ```
 $ expo start
 ```
+
+NB: You need expo installed.
+If its not, download expo <a href="https://reactnative.dev/docs/environment-setup">here</a>
+
 The Developer tools will run on http://localhost:19002 </br>
 And the given information will be showed
 
