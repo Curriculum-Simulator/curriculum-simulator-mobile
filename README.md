@@ -1,6 +1,6 @@
 # Introduction
 
-Curriculum Simulator is an Application that allows students of my school to see which subjects are accessible to them according to the subjects they have passed.
+Curriculum Simulator is an Application that allows students of HE2B - Ecole Supérieure d'Informatique to see which subjects are accessible to them according to the subjects they have passed.
 
 
 This app exist both as a **Mobile app** and **Progressive Web App**.  
